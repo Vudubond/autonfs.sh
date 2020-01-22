@@ -1,2 +1,2 @@
 # autonfs.sh
-AutoNFS
+AutoNFS script to mount/unmount NFS if NFS server is not reachable, and send email.
