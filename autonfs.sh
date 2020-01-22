@@ -71,6 +71,11 @@ while true; do
             fi
         done
     else
+    # If cpanel is installed kill backup script.
+    log "Kill cPanel backup script if exists"
+    if [ -d /var/cpanel ]; then
+        for i in `ps aux|grep backup|grep -v grep| awk '{print $2}'` ; do kill -9 $i ; done
+    fi
         # Fileserver is down.
         log "Fileserver is down."
         for MOUNT in ${MOUNTS[@]}; do
